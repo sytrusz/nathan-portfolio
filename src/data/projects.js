@@ -42,7 +42,7 @@ export const projects = [
     category: "AI + RAG Website",
     githubLink: "https://github.com/piolonrqz/Capstone-ALLY",   
     demoLink: "https://ally-cit.vercel.app/",
-    image: "/images/ally.jpg"
+    image: "images/ally.jpg"
   },
   {
     id: 2,
@@ -51,7 +51,7 @@ export const projects = [
     tech: ["Spring Boot", "React", "Firebase", "MySQL"],
     category: "Website",
     githubLink: "https://github.com/sytrusz/campusxperience",
-    image: "/images/campusxperience.jpg"    
+    image: "images/campusxperience.jpg"    
   },    
   {
     id: 3,
@@ -61,7 +61,7 @@ export const projects = [
     category: "Website + Mobile App",
     demoLink: "https://it-342-g6-study-space-i6r8.vercel.app/",
     githubLink: "https://github.com/piolonrqz/IT342G6-StudySpace",
-    image: "/images/studyspace.jpg"
+    image: "images/studyspace.jpg"
   },
   {
     id: 4,
@@ -70,7 +70,7 @@ export const projects = [
     tech: ["Node.js", "Express", "React", "Cardano", "Blockfrost", "CIP-30 Wallet", "MongoDB"],
     category: "Web3 Website",
     githubLink: "https://github.com/piolonrqz/notes-app",
-    image: "/images/notesapp.jpg"
+    image: "images/notesapp.jpg"
   },
   {
     id: 5,
@@ -79,6 +79,6 @@ export const projects = [
     tech: ["Java", "MySQL"],
     category: "Software",
     githubLink: "https://github.com/kingkuys2123/HotelManagementSystem",
-    image: "/images/hotel.jpg"
+    image: "images/hotel.jpg"
   }
 ];
