@@ -12,6 +12,9 @@ export const education = [
     school: "Cebu Institute of Technology - University",
     degree: "Bachelor of Science in Information Technology",
     year: "2021 - Present",
+    roles: [
+      "Communications Liaison Officer - Committee on Volunteers (Computer Students' Society)"
+    ],
     certifications: [
       {
         name: "AWS Academy Graduate - Cloud Architecting",

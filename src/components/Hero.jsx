@@ -23,9 +23,9 @@ const Hero = () => {
         <span>BACKEND & AI DEVELOPER</span>
       </div>
 
-      <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter mb-6 leading-[1.1]">
+      <h1 className="text-4xl sm:text-6xl md:text-8xl font-black text-white tracking-tighter mb-6 leading-[1.1]">
         NATHAN RENER <br />
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-white animate-gradient-x">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-white animate-gradient-x py-2 pr-2">
           MALAGAPO
         </span>
       </h1>

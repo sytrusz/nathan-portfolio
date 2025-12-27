@@ -3,19 +3,30 @@ import { education, skills } from '../data/projects';
 import { GraduationCap, ShieldCheck, Code2, Cpu, Users } from 'lucide-react';
 
 export const Education = () => (
-  <section className="bg-slate-900/40 border border-white/5 rounded-2xl p-8 hover:bg-slate-800/40 transition-colors">
+  <section className="bg-slate-900/40 border border-white/5 rounded-2xl p-8 hover:bg-slate-800/40 transition-colors h-full">
     <div className="flex items-center gap-3 mb-6">
       <GraduationCap size={24} className="text-purple-400" />
       <h3 className="font-bold text-white text-xl">Education</h3>
     </div>
 
-    <div className="space-y-6">
+    <div className="space-y-8">
       {education.map((edu, idx) => (
-        <div key={idx} className="border-l-2 border-slate-700 pl-6 relative">
+        <div key={idx} className="relative border-l-2 border-slate-700 pl-6 pb-2">
            <div className="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-purple-500"></div>
            <h4 className="text-white font-bold text-lg">{edu.school}</h4>
            <p className="text-slate-400 text-sm mb-1">{edu.degree}</p>
-           <span className="text-slate-500 text-xs font-mono">{edu.year}</span>
+           <span className="text-slate-500 text-xs font-mono block mb-4">{edu.year}</span>
+
+           {edu.roles && (
+             <div className="mt-3 pt-3 border-t border-white/5">
+               {edu.roles.map((role, i) => (
+                 <p key={i} className="text-slate-300 text-sm font-medium flex items-start gap-2">
+                   <span className="mt-1.5 w-1 h-1 rounded-full bg-cyan-500 shrink-0"></span>
+                   {role}
+                 </p>
+               ))}
+             </div>
+           )}
         </div>
       ))}
     </div>
@@ -23,7 +34,7 @@ export const Education = () => (
 );
 
 export const Certifications = () => (
-  <section className="bg-slate-900/40 border border-white/5 rounded-2xl p-8 hover:bg-slate-800/40 transition-colors">
+  <section className="bg-slate-900/40 border border-white/5 rounded-2xl p-8 hover:bg-slate-800/40 transition-colors h-full">
     <div className="flex items-center gap-3 mb-6">
       <ShieldCheck size={24} className="text-cyan-400" />
       <h3 className="font-bold text-white text-xl">Certifications</h3>
