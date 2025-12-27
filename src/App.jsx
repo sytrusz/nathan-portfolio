@@ -7,57 +7,64 @@ import { projects } from './data/projects';
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-slate-950 text-gray-100 font-sans selection:bg-blue-500 selection:text-white relative">
+    <div className="min-h-screen bg-[#050505] text-slate-200 font-sans selection:bg-cyan-500 selection:text-white relative overflow-x-hidden">
       
-      <div className="fixed inset-0 -z-10 h-full w-full bg-slate-950">
-        {/* 1. The Grid Pattern */}
-        <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-        
-        {/* 2. The Top Spotlight (Blue/Purple Gradient) */}
-        <div className="absolute top-[-20%] left-0 right-0 h-[500px] w-full bg-[radial-gradient(circle_farthest-side,rgba(37,99,235,0.15),rgba(255,255,255,0))]"></div>
-        <div className="absolute top-[-10%] left-0 right-0 h-[500px] w-full bg-[radial-gradient(circle_farthest-side,rgba(168,85,247,0.15),rgba(255,255,255,0))] mix-blend-screen"></div>
+      <div className="fixed inset-0 -z-10 h-full w-full bg-[#050505]">
+        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[120px] mix-blend-screen animate-pulse"></div>
+        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px] mix-blend-screen animate-pulse delay-1000"></div>
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03]"></div>
       </div>
 
       <Navbar />
 
-      <main className="max-w-7xl mx-auto px-6 pt-28 pb-20 space-y-20">
+      <main className="max-w-6xl mx-auto px-6 pb-32 space-y-32">
         
-        {/* 1. HERO & INTRO */}
+        {/* MAIN PROFILE */}
         <Hero />
 
-        {/* 2. FEATURED PROJECTS */}
-        <section id="projects" className="scroll-mt-24">
-          <div className="flex items-center gap-4 mb-8">
-            <h2 className="text-2xl font-bold text-white tracking-tight">Selected Works</h2>
-            <div className="h-px bg-gradient-to-r from-gray-800 to-transparent flex-1"></div>
+        {/* 01. FEATURED PROJECTS */}
+        <section id="projects" className="scroll-mt-32">
+          <div className="flex items-center gap-4 mb-12">
+            <span className="text-cyan-400 font-mono text-xl font-bold">01.</span>
+            <h2 className="text-3xl font-bold text-white tracking-tight">Featured Projects</h2>
+            <div className="h-px bg-slate-800 flex-1 ml-4"></div>
           </div>
 
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-10">
             {projects.map(project => (
               <ProjectRow key={project.id} project={project} />
             ))}
           </div>
         </section>
 
-        {/* 3. RESUME SECTION */}
-        <section id="tech" className="scroll-mt-24">
-        <div className="flex flex-col gap-8">
+        {/* 02. TECH STACK */}
+        <section id="stack" className="scroll-mt-32">
+          <div className="flex items-center gap-4 mb-12">
+             <span className="text-purple-400 font-mono text-xl font-bold">02.</span>
+             <h2 className="text-3xl font-bold text-white tracking-tight">Tech Stack</h2>
+             <div className="h-px bg-slate-800 flex-1 ml-4"></div>
+          </div>
           
-          {/* Row 1: Skills */}
           <Skills />
+        </section>
+
+        {/* 03. EDUCATION */}
+        <section id="education" className="scroll-mt-32">
+          <div className="flex items-center gap-4 mb-12">
+             <span className="text-pink-400 font-mono text-xl font-bold">03.</span>
+             <h2 className="text-3xl font-bold text-white tracking-tight">Education</h2>
+             <div className="h-px bg-slate-800 flex-1 ml-4"></div>
+          </div>
           
-          {/* Row 2: Education & Certifications */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Education />
             <Certifications />
           </div>
-
-        </div>
         </section>
+
       </main>
 
-      {/* Footer */}
-      <footer id="contact" className="border-t border-gray-800/50 py-8 text-center text-gray-500 text-sm bg-slate-950/80 backdrop-blur-sm scroll-mt-20">
+      <footer id="contact" className="border-t border-slate-900 py-12 text-center text-slate-600 text-sm bg-[#050505]">
         <p>© {new Date().getFullYear()} Nathan Rener Malagapo</p>
       </footer>
     </div>
