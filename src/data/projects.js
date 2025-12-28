@@ -32,7 +32,7 @@ export const education = [
 
 export const skills = {
   languages: ["Java", "Python", "Javascript", "PHP", "HTML/CSS", "C", "SQL"],
-  frameworks: ["Spring Boot", "React", "FastAPI", "Node.js", "Django"],
+  frameworks: ["Spring Boot", "React", "FastAPI", "Express.js", "Django"],
   soft: ["Communication", "Team Collaboration", "Problem-solving", "Adaptability", "Critical Thinking"]
 };
 
