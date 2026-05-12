@@ -13,7 +13,8 @@ export const education = [
     degree: "Bachelor of Science in Information Technology",
     year: "2021 - Present",
     roles: [
-      "Communications Liaison Officer - Committee on Volunteers (Computer Students' Society)"
+      "Communications Liaison Officer - Committee on Volunteers (Computer Students' Society)",
+      "Member - Google Developer Groups on Campus - CIT-U"
     ],
     certifications: [
       {
@@ -32,9 +33,42 @@ export const education = [
 
 export const skills = {
   languages: ["Java", "Python", "Javascript", "PHP", "HTML/CSS", "C", "SQL"],
-  frameworks: ["Spring Boot", "React", "FastAPI", "Express.js", "Django"],
-  soft: ["Communication", "Team Collaboration", "Problem-solving", "Adaptability", "Critical Thinking"]
+  frameworks: ["Spring Boot", "React", "FastAPI", "Django", "Next.js", "Express.js"],
+  ai_ml: ["RAG pipelines", "LLM fine-tuning (Vertex)", "Pinecone", "Qdrant"],
+  cloud_devops: ["Google Cloud Platform", "AWS", "Git", "Swagger", "Postman"]
 };
+
+export const experience = [
+  {
+    role: "Web Developer",
+    types: ["Intern"],
+    workType: "Hybrid",
+    company: "Innodata Knowledge Services Inc.",
+    location: "HVG IT Park, Subangdaku, Mandaue, Cebu",
+    period: "Feb 2026 - Apr 2026",
+    months: 3,
+    achievements: [
+      "Built a web platform transitioning manual medical records to a secure digital system.",
+      "Developed automated tools to parse and organize data from unstructured medical documents.",
+      "Implemented features for clinic staff to instantly identify abnormal health results."
+    ],
+    tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Python", "OCR"]
+  },
+  {
+    role: "AI Data Annotator",
+    types: ["Freelance", "Intern"],
+    workType: "Remote", 
+    company: "Innodata Knowledge Services Inc.",
+    location: "HVG IT Park, Subangdaku, Mandaue, Cebu",
+    period: "Jan 2026 - Feb 2026",
+    months: 2,
+    achievements: [
+      "Supported high-impact AI projects by labeling and categorizing complex datasets.",
+      "Ensured data quality and consistency to improve machine learning model accuracy."
+    ],
+    tech: ["Data Analysis", "AI Training", "QA"]
+  }
+];
 
 export const projects = [
   {
@@ -42,46 +76,135 @@ export const projects = [
     title: "ALLY",
     description: "AI-powered legal assistant for Filipinos using RAG technology to simplify legal inquiry.",
     tech: ["Spring Boot", "React", "Python", "Gemini (Fine-tuned)", "MySQL", "Vector DB", "Firebase"],
-    category: "AI + RAG Website",
+    categories: ["AI", "RAG", "Web"],
+    status: "Open Source",
+    architecture: [
+      { component: "Frontend", detail: "React SPA with Firebase Auth" },
+      { component: "Backend API", detail: "Spring Boot Microservices" },
+      { component: "AI/RAG Service", detail: "Python FastAPI + Fine-tuned Gemini" },
+      { component: "Databases", detail: "MySQL (Relational) + Vector DB (Embeddings)" }
+    ],
     githubLink: "https://github.com/piolonrqz/Capstone-ALLY",   
     demoLink: "https://ally-cit.vercel.app/",
-    image: "images/ally.jpg"
+    images: [
+      { src: "images/ally/ally-1.jpg", caption: "Home page view of ALLY" },
+      { src: "images/ally/ally-2.png", caption: "Chat interface powered by Gemini" },
+      { src: "images/ally/ally-3.png", caption: "Legal document analysis view" },
+      { src: "images/ally/ally-4.jpg", caption: "Top 8 out of 80+ teams presented to potential investors and government officials during the CCS TechCon 2025" }
+    ]
   },
   {
     id: 2,
-    title: "CampusXperience",
-    description: "A centralized web platform for handling campus events, student organizations, and announcements.",
-    tech: ["Spring Boot", "React", "Firebase", "MySQL"],
-    category: "Website",
-    githubLink: "https://github.com/sytrusz/campusxperience",
-    image: "images/campusxperience.jpg"    
-  },    
+    title: "APE System",
+    description: "A web-based system for managing Annual Physical Examination (APE) records. Staff upload medical PDF documents, the system extracts relevant patient data using AI, and presents structured records for review and management.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS v4", "PostgreSQL", "Prisma", "Claude AI", "pdf-parse"],
+    categories: ["AI", "Healthcare", "Web"],
+    status: "Confidential",
+    architecture: [
+      { component: "Frontend", detail: "Next.js 16 App Router (TS) + Tailwind v4" },
+      { component: "AI Engine", detail: "Claude 3.5 Sonnet via Anthropic API (Function Calling)" },
+      { component: "Extraction", detail: "Custom PyMuPDF scripts for text/table parsing" },
+      { component: "Backend", detail: "Server Actions + Prisma 7 ORM" },
+      { component: "Database", detail: "PostgreSQL (Neon) with Row Level Security" }
+    ],
+    githubLink: "https://github.com/sytrusz/InnoCare-APE",
+    images: ["images/innocare/innocare-1.png", "images/innocare/innocare-2.png", "images/innocare/innocare-3.png", "images/innocare/innocare-4.png", "images/innocare/innocare-5.png"]
+  },
   {
     id: 3,
-    title: "StudySpace",
-    description: "A cross-platform booking solution simplifying the search for co-working spaces for students and freelancers.",
-    tech: ["Spring Boot", "React", "Android"],
-    category: "Website + Mobile App",
-    demoLink: "https://it-342-g6-study-space-i6r8.vercel.app/",
-    githubLink: "https://github.com/piolonrqz/IT342G6-StudySpace",
-    image: "images/studyspace.jpg"
+    title: "Network Monitoring Dashboard",
+    description: "Real-time monitoring dashboard for MikroTik routers and TP-Link Deco Mesh systems, solving the 'True-Negative' internet connectivity problem with Dual-ISP support.",
+    tech: ["FastAPI", "Next.js", "Python", "MikroTik REST API", "Tailwind CSS"],
+    categories: ["Networking", "IoT", "Web"],
+    status: "Open Source",
+    architecture: [
+      { component: "Frontend", detail: "Next.js Dashboard UI" },
+      { component: "Backend", detail: "Python FastAPI Server" },
+      { component: "Integration", detail: "MikroTik REST API Polling" },
+      { component: "Logic Engine", detail: "Dual-ISP True-Negative Detection" }
+    ],
+    githubLink: "https://github.com/sytrusz/MIKROTIK-TPLINK-MESH-MONITORING",
+    images: ["images/network-monitor.jpg"]
   },
   {
     id: 4,
+    title: "CampusXperience",
+    description: "A centralized web platform for handling campus events, student organizations, and announcements.",
+    tech: ["Spring Boot", "React", "Firebase", "MySQL"],
+    categories: ["Web"],
+    status: "Open Source",
+    architecture: [
+      { component: "Frontend", detail: "React Web Application" },
+      { component: "Backend", detail: "Spring Boot REST API" },
+      { component: "Authentication", detail: "Firebase Auth" },
+      { component: "Database", detail: "MySQL Relational Data Store" }
+    ],
+    githubLink: "https://github.com/sytrusz/campusxperience",
+    images: ["images/campusxperience/campusxperience-1.jpg"]    
+  },    
+  {
+    id: 5,
+    title: "StudySpace",
+    description: "A cross-platform booking solution simplifying the search for co-working spaces for students and freelancers.",
+    tech: ["Spring Boot", "React", "Android"],
+    categories: ["Web", "Mobile"],
+    status: "Open Source",
+    architecture: [
+      { component: "Web Frontend", detail: "React Application" },
+      { component: "Mobile App", detail: "Native Android Application" },
+      { component: "Backend API", detail: "Spring Boot Microservices" },
+      { component: "Data Layer", detail: "Centralized SQL Database" }
+    ],
+    demoLink: "https://it-342-g6-study-space-i6r8.vercel.app/",
+    githubLink: "https://github.com/piolonrqz/IT342G6-StudySpace",
+    images: ["images/studyspace/studyspace.jpg"]
+  },
+  {
+    id: 6,
+    title: "Payroll System",
+    description: "A desktop-based Interactive Payroll Authoring System replacing complex Excel templates with real-time tax/contribution calculations and an Ag-Grid spreadsheet interface.",
+    tech: ["Next.js", "Tauri", "TypeScript", "Ag-Grid", "SQLite", "Tailwind CSS"],
+    categories: ["Fintech", "Desktop"],
+    status: "Confidential",
+    architecture: [
+      { component: "Interface", detail: "Next.js + Ag-Grid Enterprise (Authoring Mode)" },
+      { component: "Core Logic", detail: "TypeScript Calculation Engine (Tax Brackets/Contributions)" },
+      { component: "Desktop Bridge", detail: "Tauri v2 (Rust backend for system access)" },
+      { component: "Persistence", detail: "Local SQLite with complex ledger schema" },
+      { component: "Reporting", detail: "React-PDF for institutional report generation" }
+    ],
+    githubLink: "https://github.com/sytrusz/ConsoLink-Payroll",
+    images: ["images/payroll/payroll-1.png", "images/payroll/payroll-2.png", "images/payroll/payroll-3.png"]
+  },
+  {
+    id: 7,
     title: "Notes App (Web3)",
     description: "A hybrid Web3 notes application by Team JKWELEYN, combining fast, user-friendly experiences with the permanence and ownership of the Cardano blockchain.",
     tech: ["Node.js", "Express", "React", "Cardano", "Blockfrost", "CIP-30 Wallet", "MongoDB"],
-    category: "Web3 Website",
+    categories: ["Web3", "Web"],
+    status: "Open Source",
+    architecture: [
+      { component: "Frontend", detail: "React Web3 Interface" },
+      { component: "Wallet", detail: "CIP-30 Browser Extension Integration" },
+      { component: "Backend", detail: "Node.js + Express API" },
+      { component: "Blockchain", detail: "Cardano Network via Blockfrost" }
+    ],
     githubLink: "https://github.com/piolonrqz/notes-app",
-    image: "images/notesapp.jpg"
+    images: ["images/notesapp/notesapp-1.jpg"]
   },
   {
-    id: 5,
+    id: 8,
     title: "Hotel Management System",
     description: "Desktop application for handling reservations, room status, and guest billing.",
     tech: ["Java", "MySQL"],
-    category: "Software",
+    categories: ["Software", "Desktop"],
+    status: "Open Source",
+    architecture: [
+      { component: "Interface", detail: "Java Swing/JavaFX Desktop GUI" },
+      { component: "Logic", detail: "Java Core Business Rules" },
+      { component: "Database", detail: "Local MySQL Server Connection" }
+    ],
     githubLink: "https://github.com/kingkuys2123/HotelManagementSystem",
-    image: "images/hotel.jpg"
+    images: ["images/hotel/hotel-1.jpg"]
   }
 ];

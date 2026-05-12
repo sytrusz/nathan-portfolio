@@ -20,7 +20,7 @@ const Hero = () => {
       {/* Intro Badge */}
       <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono font-bold mb-6">
         <Terminal size={12} />
-        <span>BACKEND & AI DEVELOPER</span>
+        <span>WEB & AI DEVELOPER</span>
       </div>
 
       <h1 className="text-4xl sm:text-6xl md:text-8xl font-black text-white tracking-tighter mb-6 leading-[1.1]">
