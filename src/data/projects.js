@@ -4,14 +4,14 @@ export const profile = {
   location: "Cebu City, Philippines",
   email: "nathanrenermalagapo@gmail.com",
   linkedin: "https://www.linkedin.com/in/nathan-rener-malagapo-60b4a72a5/",
-  summary: "IT student at CIT-U with strong foundations in web development. Experienced in building AI-integrated applications (RAG) and management systems. Passionate about solving local problems through accessible technology."
+  summary: "Information Technology graduate from CIT-U with strong foundations in web development. Experienced in building AI-integrated applications (RAG) and management systems. Passionate about solving local problems through accessible technology."
 };
 
 export const education = [
   {
     school: "Cebu Institute of Technology - University",
     degree: "Bachelor of Science in Information Technology",
-    year: "2021 - Present",
+    year: "2021 - 2026",
     roles: [
       "Communications Liaison Officer - Committee on Volunteers (Computer Students' Society)",
       "Member - Google Developer Groups on Campus - CIT-U"
@@ -74,15 +74,16 @@ export const projects = [
   {
     id: 1,
     title: "ALLY",
-    description: "AI-powered legal assistant for Filipinos using RAG technology to simplify legal inquiry.",
+    description: "ALLY is a dedicated, AI-powered legal assistant that leverages RAG technology, drawing directly from Philippine Supreme Court cases, to simplify legal inquiries for Filipinos. The platform is designed to democratize access to justice, helping citizens who struggle to secure qualified legal representation easily understand their rights under Philippine law.",
+    privateNote: "The repository is temporarily set to private due to copyright and misuse concerns from individuals claiming it as their own thesis/capstone project without our permission.",
     tech: ["Spring Boot", "React", "Python", "Gemini (Fine-tuned)", "MySQL", "Vector DB", "Firebase"],
     categories: ["AI", "RAG", "Web"],
     status: "Open Source",
     architecture: [
       { component: "Frontend", detail: "React SPA with Firebase Auth" },
-      { component: "Backend API", detail: "Spring Boot Microservices" },
+      { component: "Backend API", detail: "Spring Boot" },
       { component: "AI/RAG Service", detail: "Python FastAPI + Fine-tuned Gemini" },
-      { component: "Databases", detail: "MySQL (Relational) + Vector DB (Embeddings)" }
+      { component: "Databases", detail: "MySQL (Relational) + Pinecone - Vector DB (Embeddings)" }
     ],
     githubLink: "https://github.com/piolonrqz/Capstone-ALLY",   
     demoLink: "https://ally-cit.vercel.app/",
@@ -90,7 +91,9 @@ export const projects = [
       { src: "images/ally/ally-1.jpg", caption: "Home page view of ALLY" },
       { src: "images/ally/ally-2.png", caption: "Chat interface powered by Gemini" },
       { src: "images/ally/ally-3.png", caption: "Legal document analysis view" },
-      { src: "images/ally/ally-4.jpg", caption: "Top 8 out of 80+ teams presented to potential investors and government officials during the CCS TechCon 2025" }
+      { src: "images/ally/ally-4.jpg", caption: "Top 8 out of 80+ teams presented to potential investors and government officials during the CCS TechCon 2025" },
+      { src: "images/ally/ally-5.png", caption: "Team poster for CCS TechCon 2025" }
+
     ]
   },
   {
@@ -101,11 +104,11 @@ export const projects = [
     categories: ["AI", "Healthcare", "Web"],
     status: "Confidential",
     architecture: [
-      { component: "Frontend", detail: "Next.js 16 App Router (TS) + Tailwind v4" },
+      { component: "Frontend", detail: "Next.js (TS) + Tailwind" },
       { component: "AI Engine", detail: "Claude 3.5 Sonnet via Anthropic API (Function Calling)" },
       { component: "Extraction", detail: "Custom PyMuPDF scripts for text/table parsing" },
       { component: "Backend", detail: "Server Actions + Prisma 7 ORM" },
-      { component: "Database", detail: "PostgreSQL (Neon) with Row Level Security" }
+      { component: "Database", detail: "PostgreSQL" }
     ],
     githubLink: "https://github.com/sytrusz/InnoCare-APE",
     images: ["images/innocare/innocare-1.png", "images/innocare/innocare-2.png", "images/innocare/innocare-3.png", "images/innocare/innocare-4.png", "images/innocare/innocare-5.png"]
@@ -113,15 +116,17 @@ export const projects = [
   {
     id: 3,
     title: "Network Monitoring Dashboard",
-    description: "Real-time monitoring dashboard for MikroTik routers and TP-Link Deco Mesh systems, solving the 'True-Negative' internet connectivity problem with Dual-ISP support.",
-    tech: ["FastAPI", "Next.js", "Python", "MikroTik REST API", "Tailwind CSS"],
+    description: "Real-time monitoring dashboard for MikroTik routers and TP-Link Deco Mesh systems. Features Dual-ISP failover detection, 'True-Negative' connectivity logic, and a newly integrated Telegram Bot for real-time push notifications and interactive interface controls.",
+    tech: ["FastAPI", "Next.js", "Python", "Telegram API", "MikroTik API", "Tailwind CSS"],
     categories: ["Networking", "IoT", "Web"],
     status: "Open Source",
     architecture: [
-      { component: "Frontend", detail: "Next.js Dashboard UI" },
+      { component: "Frontend", detail: "Next.js Dashboard" },
       { component: "Backend", detail: "Python FastAPI Server" },
       { component: "Integration", detail: "MikroTik REST API Polling" },
-      { component: "Logic Engine", detail: "Dual-ISP True-Negative Detection" }
+      { component: "Logic Engine", detail: "Dual-ISP True-Negative Detection" },
+      { component: "Integration", detail: "MikroTik REST API" },
+      { component: "Alerting", detail: "Telegram Bot API" }
     ],
     githubLink: "https://github.com/sytrusz/MIKROTIK-TPLINK-MESH-MONITORING",
     images: ["images/network-monitor.jpg"]
@@ -134,10 +139,10 @@ export const projects = [
     categories: ["Web"],
     status: "Open Source",
     architecture: [
-      { component: "Frontend", detail: "React Web Application" },
-      { component: "Backend", detail: "Spring Boot REST API" },
-      { component: "Authentication", detail: "Firebase Auth" },
-      { component: "Database", detail: "MySQL Relational Data Store" }
+    { component: "Frontend", detail: "React Web Application" },
+    { component: "Backend", detail: "Spring Boot" },
+    { component: "Authentication", detail: "Firebase Auth" },
+    { component: "Database", detail: "MySQL" }
     ],
     githubLink: "https://github.com/sytrusz/campusxperience",
     images: ["images/campusxperience/campusxperience-1.jpg"]    
@@ -150,10 +155,10 @@ export const projects = [
     categories: ["Web", "Mobile"],
     status: "Open Source",
     architecture: [
-      { component: "Web Frontend", detail: "React Application" },
-      { component: "Mobile App", detail: "Native Android Application" },
-      { component: "Backend API", detail: "Spring Boot Microservices" },
-      { component: "Data Layer", detail: "Centralized SQL Database" }
+    { component: "Web Frontend", detail: "React Web Application" },
+    { component: "Mobile App", detail: "Native Android Application" },
+    { component: "Backend", detail: "Spring Boot" },
+    { component: "Database", detail: "SQL Database" }
     ],
     demoLink: "https://it-342-g6-study-space-i6r8.vercel.app/",
     githubLink: "https://github.com/piolonrqz/IT342G6-StudySpace",
@@ -167,11 +172,12 @@ export const projects = [
     categories: ["Fintech", "Desktop"],
     status: "Confidential",
     architecture: [
-      { component: "Interface", detail: "Next.js + Ag-Grid Enterprise (Authoring Mode)" },
-      { component: "Core Logic", detail: "TypeScript Calculation Engine (Tax Brackets/Contributions)" },
-      { component: "Desktop Bridge", detail: "Tauri v2 (Rust backend for system access)" },
-      { component: "Persistence", detail: "Local SQLite with complex ledger schema" },
-      { component: "Reporting", detail: "React-PDF for institutional report generation" }
+    { component: "Frontend", detail: "Next.js + Ag-Grid (Authoring Mode)" },
+    { component: "Backend Logic", detail: "TypeScript Engine" },
+    { component: "Core Logic", detail: "TypeScript Calculation Engine (Tax Brackets/Contributions)" },
+    { component: "Desktop Bridge", detail: "Tauri v2 (Rust backend for system access)" },
+    { component: "Reporting", detail: "React-PDF for institutional report generation" },
+    { component: "Database", detail: "SQLite" }
     ],
     githubLink: "https://github.com/sytrusz/ConsoLink-Payroll",
     images: ["images/payroll/payroll-1.png", "images/payroll/payroll-2.png", "images/payroll/payroll-3.png"]
@@ -184,10 +190,12 @@ export const projects = [
     categories: ["Web3", "Web"],
     status: "Open Source",
     architecture: [
-      { component: "Frontend", detail: "React Web3 Interface" },
-      { component: "Wallet", detail: "CIP-30 Browser Extension Integration" },
-      { component: "Backend", detail: "Node.js + Express API" },
-      { component: "Blockchain", detail: "Cardano Network via Blockfrost" }
+    { component: "Frontend", detail: "React Web Application" },
+    { component: "Wallet", detail: "CIP-30 Browser Extension Integration" },
+    { component: "Frontend", detail: "React Interface" },
+    { component: "Backend", detail: "Node.js + Express" },
+    { component: "Blockchain", detail: "Cardano Network via Blockfrost" },
+    { component: "Database", detail: "MongoDB" }
     ],
     githubLink: "https://github.com/piolonrqz/notes-app",
     images: ["images/notesapp/notesapp-1.jpg"]
@@ -200,9 +208,9 @@ export const projects = [
     categories: ["Software", "Desktop"],
     status: "Open Source",
     architecture: [
-      { component: "Interface", detail: "Java Swing/JavaFX Desktop GUI" },
-      { component: "Logic", detail: "Java Core Business Rules" },
-      { component: "Database", detail: "Local MySQL Server Connection" }
+      { component: "Frontend", detail: "Java GUI" },
+      { component: "Backend", detail: "Java Core Logic" },
+      { component: "Database", detail: "MySQL Server" }
     ],
     githubLink: "https://github.com/kingkuys2123/HotelManagementSystem",
     images: ["images/hotel/hotel-1.jpg"]

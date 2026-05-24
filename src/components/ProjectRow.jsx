@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, ExternalLink, ArrowUpRight, Layers, X, ChevronLeft, ChevronRight, Maximize2, Image as ImageIcon } from 'lucide-react';
+import { Github, ExternalLink, ArrowUpRight, Layers, X, ChevronLeft, ChevronRight, Maximize2, Image as ImageIcon, ShieldAlert } from 'lucide-react';
 
 const getImgSrc = (img) => typeof img === 'string' ? img : img?.src;
 const getImgCaption = (img, index, title) => typeof img === 'string' ? `${title} Screenshot ${index + 1}` : (img?.caption || `${title} Screenshot ${index + 1}`);
@@ -98,6 +98,7 @@ const ProjectRow = ({ project, isHighlighted }) => {
   const [isHovering, setIsHovering] = useState(false);
   
   const isConfidential = project.status === 'Confidential';
+  const isPrivateRepo = isConfidential || project.privateNote;
   const images = project.images || [];
 
   useEffect(() => {
@@ -182,6 +183,13 @@ const ProjectRow = ({ project, isHighlighted }) => {
               ))}
             </div>
 
+            {project.privateNote && (
+              <div className="flex items-start gap-3 p-4 mb-8 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-200/90 text-sm leading-relaxed">
+                <ShieldAlert size={18} className="shrink-0 mt-0.5 text-amber-500" />
+                <p>{project.privateNote}</p>
+              </div>
+            )}
+
             <div className="flex flex-wrap gap-6 mt-auto">
               {project.demoLink && (
                 <a href={project.demoLink} target="_blank" className="flex items-center gap-2 text-sm font-bold text-white hover:text-cyan-400 transition-colors">
@@ -189,7 +197,7 @@ const ProjectRow = ({ project, isHighlighted }) => {
                 </a>
               )}
 
-              {isConfidential ? (
+              {isPrivateRepo ? (
                 <div className="flex items-center gap-2 text-sm font-bold text-slate-500 cursor-not-allowed">
                   Private Repository <Github size={16} />
                 </div>
