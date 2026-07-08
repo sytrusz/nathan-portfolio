@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Github, ExternalLink, ArrowUpRight, Layers, X, ChevronLeft, ChevronRight, Maximize2, Image as ImageIcon, ShieldAlert } from 'lucide-react';
 
 const getImgSrc = (img) => typeof img === 'string' ? img : img?.src;
@@ -6,17 +6,48 @@ const getImgCaption = (img, index, title) => typeof img === 'string' ? `${title}
 
 const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
   const images = project.images || [];
 
-  const handleNext = (e) => {
-    e.stopPropagation();
+  const handleNext = useCallback((e) => {
+    e?.stopPropagation();
     if (images.length) setCurrentIndex((prev) => (prev + 1) % images.length);
+  }, [images.length]);
+
+  const handlePrev = useCallback((e) => {
+    e?.stopPropagation();
+    if (images.length) setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  }, [images.length]);
+
+  const handleTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
   };
 
-  const handlePrev = (e) => {
-    e.stopPropagation();
-    if (images.length) setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
   };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+    
+    if (isLeftSwipe) handleNext({ stopPropagation: () => {} });
+    if (isRightSwipe) handlePrev({ stopPropagation: () => {} });
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') handleNext();
+      if (e.key === 'ArrowLeft') handlePrev();
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleNext, handlePrev, onClose]);
 
   return (
     <div 
@@ -30,7 +61,13 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
         <X size={32} />
       </button>
 
-      <div className="relative w-full max-w-6xl h-full flex flex-col items-center justify-center gap-6" onClick={(e) => e.stopPropagation()}>
+      <div 
+        className="relative w-full max-w-6xl h-full flex flex-col items-center justify-center gap-6" 
+        onClick={(e) => e.stopPropagation()}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div className="relative group w-full flex-1 flex items-center justify-center min-h-0">
           {images.length > 1 && (
             <>
@@ -106,9 +143,9 @@ const ProjectRow = ({ project, isHighlighted }) => {
     if (isHovering && images.length > 1 && !showArchitecture) {
       interval = setInterval(() => {
         setCurrentImageIndex((prev) => (prev + 1) % images.length);
-      }, 2000);
+      }, 1200);
     } else {
-      setCurrentImageIndex(0);
+      setTimeout(() => setCurrentImageIndex(0), 0);
     }
     return () => clearInterval(interval);
   }, [isHovering, images.length, showArchitecture]);
@@ -247,9 +284,9 @@ const ProjectRow = ({ project, isHighlighted }) => {
               ) : null}
 
               {/* Scrolling Image Carousel */}
-              <div className="relative w-full h-full flex items-center p-6 overflow-hidden">
+              <div className="absolute inset-0 flex items-center p-6 overflow-hidden">
                 <div 
-                  className={`flex w-full h-full items-center transition-transform duration-700 ease-in-out ${showArchitecture ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}
+                  className={`flex w-full h-full items-center transition-transform duration-500 ease-out ${showArchitecture ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}
                   style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
                 >
                   {images.length > 0 ? (

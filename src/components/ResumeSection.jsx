@@ -1,6 +1,6 @@
 import React from 'react';
 import { education, skills, experience } from '../data/projects';
-import { GraduationCap, ShieldCheck, Code2, Cpu, Users, Briefcase, BrainCircuit, Cloud, MapPin, Calendar, ChevronRight } from 'lucide-react';
+import { GraduationCap, ShieldCheck, Code2, Cpu, Users, Briefcase, BrainCircuit, Cloud, MapPin, Calendar, ChevronRight, Database } from 'lucide-react';
 
 export const Education = () => (
   <section className="bg-slate-900/40 border border-white/5 rounded-2xl p-8 hover:bg-slate-800/40 transition-colors h-full">
@@ -139,6 +139,10 @@ export const Skills = ({ onTechHover, activeTech }) => {
       label: "Frameworks",
       icon: <Cpu size={24} className="text-pink-400" />
     },
+    databases: {
+      label: "Databases",
+      icon: <Database size={24} className="text-green-400" />
+    },
     ai_ml: {
       label: "AI / ML & Data",
       icon: <BrainCircuit size={24} className="text-purple-400" />
@@ -150,9 +154,12 @@ export const Skills = ({ onTechHover, activeTech }) => {
   };
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <section className="flex flex-wrap justify-center gap-6">
       {Object.entries(categories).map(([key, config]) => (
-        <div key={key} className="bg-slate-900/40 border border-white/5 rounded-2xl p-6 hover:border-white/20 transition-all hover:-translate-y-1 duration-300">
+        <div 
+          key={key} 
+          className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-slate-900/40 border border-white/5 rounded-2xl p-6 hover:border-white/20 transition-all hover:-translate-y-1 duration-300"
+        >
           <h4 className="text-white capitalize font-bold mb-6 flex items-center gap-3">
             {config.icon}
             {config.label}

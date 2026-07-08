@@ -4,7 +4,7 @@ export const profile = {
   location: "Cebu City, Philippines",
   email: "nathanrenermalagapo@gmail.com",
   linkedin: "https://www.linkedin.com/in/nathan-rener-malagapo-60b4a72a5/",
-  summary: "Information Technology graduate from CIT-U with strong foundations in web development. Experienced in building AI-integrated applications (RAG) and management systems. Passionate about solving local problems through accessible technology."
+  summary: "Web and AI Developer with experience in building scalable web applications and management systems. Skilled in integrating artificial intelligence, such as RAG pipelines, into practical software solutions."
 };
 
 export const education = [
@@ -17,6 +17,11 @@ export const education = [
       "Member - Google Developer Groups on Campus - CIT-U"
     ],
     certifications: [
+      {
+        name: "TESDA AI Certificate - Advanced Institute of Technology",
+        issuer: "TESDA",
+        year: "2026"
+      },
       {
         name: "AWS Academy Graduate - Cloud Architecting",
         issuer: "Amazon Web Services (AWS)",
@@ -32,13 +37,14 @@ export const education = [
 ];
 
 export const skills = {
-  languages: ["Java", "Python", "Javascript", "PHP", "HTML/CSS", "C", "SQL"],
-  frameworks: ["Spring Boot", "React", "FastAPI", "Django", "Next.js", "Express.js"],
-  ai_ml: ["RAG pipelines", "LLM fine-tuning (Vertex)", "Pinecone", "Qdrant"],
-  cloud_devops: ["Google Cloud Platform", "AWS", "Git", "Swagger", "Postman"]
+  languages: ["Java", "Python", "JavaScript", "TypeScript", "C", "PHP"],
+  frameworks: ["Spring Boot", "React", "FastAPI", "Next.js", "Django"],
+  databases: ["MySQL", "PostgreSQL", "MongoDB", "Pinecone", "Qdrant"],
+  ai_ml: ["RAG pipelines", "LLM fine-tuning (Vertex)", "Embedding",  ],
+  cloud_devops: ["Google Cloud Platform", "Amazon Web Services", "Git", "CI/CD (GitHub Actions)", "Swagger", "Postman", "Docker"]
 };
 
-export const experience = [
+export const experience = [ 
   {
     role: "Web Developer",
     types: ["Intern"],
@@ -89,8 +95,8 @@ export const projects = [
     demoLink: "https://ally-cit.vercel.app/",
     images: [
       { src: "images/ally/ally-1.jpg", caption: "Home page view of ALLY" },
-      { src: "images/ally/ally-2.png", caption: "Chat interface powered by Gemini" },
-      { src: "images/ally/ally-3.png", caption: "Legal document analysis view" },
+      { src: "images/ally/ally-2.png", caption: "Chat interface powered by Gemini and RAG" },
+      { src: "images/ally/ally-3.png", caption: "Supreme court cases retrieved according to user query." },
       { src: "images/ally/ally-4.jpg", caption: "Top 8 out of 80+ teams presented to potential investors and government officials during the CCS TechCon 2025" },
       { src: "images/ally/ally-5.png", caption: "Team poster for CCS TechCon 2025" }
 
@@ -114,9 +120,27 @@ export const projects = [
     images: ["images/innocare/innocare-1.png", "images/innocare/innocare-2.png", "images/innocare/innocare-3.png", "images/innocare/innocare-4.png", "images/innocare/innocare-5.png"]
   },
   {
+    id: 6,
+    title: "Payroll System",
+    description: "A desktop-based Interactive Payroll Authoring System replacing complex Excel templates with real-time tax/contribution calculations and an Ag-Grid spreadsheet interface.",
+    tech: ["Next.js", "Tauri", "TypeScript", "Ag-Grid", "SQLite", "Tailwind CSS"],
+    categories: ["Fintech", "Desktop"],
+    status: "Confidential",
+    architecture: [
+    { component: "Frontend", detail: "Next.js + Ag-Grid (Authoring Mode)" },
+    { component: "Backend Logic", detail: "TypeScript Engine" },
+    { component: "Core Logic", detail: "TypeScript Calculation Engine (Tax Brackets/Contributions)" },
+    { component: "Desktop Bridge", detail: "Tauri v2 (Rust backend for system access)" },
+    { component: "Reporting", detail: "React-PDF for institutional report generation" },
+    { component: "Database", detail: "SQLite" }
+    ],
+    githubLink: "https://github.com/sytrusz/ConsoLink-Payroll",
+    images: ["images/payroll/payroll-1.png", "images/payroll/payroll-2.png", "images/payroll/payroll-3.png"]
+  },
+  {
     id: 3,
     title: "Network Monitoring Dashboard",
-    description: "Real-time monitoring dashboard for MikroTik routers and TP-Link Deco Mesh systems. Features Dual-ISP failover detection, 'True-Negative' connectivity logic, and a newly integrated Telegram Bot for real-time push notifications and interactive interface controls.",
+    description: "Real-time monitoring dashboard for MikroTik routers and TP-Link Deco Mesh systems. Features Dual-ISP failover detection, 'True-Negative' connectivity logic, and an integrated Telegram Bot for real-time push notifications and interactive interface controls.",
     tech: ["FastAPI", "Next.js", "Python", "Telegram API", "MikroTik API", "Tailwind CSS"],
     categories: ["Networking", "IoT", "Web"],
     status: "Open Source",
@@ -129,7 +153,28 @@ export const projects = [
       { component: "Alerting", detail: "Telegram Bot API" }
     ],
     githubLink: "https://github.com/sytrusz/MIKROTIK-TPLINK-MESH-MONITORING",
-    images: ["images/network-monitor.jpg"]
+    images: [
+      { src: "images/network/network-1.png", caption: "Main Dashboard Overview" },
+      { src: "images/network/network-2.jpg", caption: "Real-time MikroTik Router Metrics" },
+      { src: "images/network/network-3.jpg", caption: "TP-Link Deco Mesh Topology & Nodes" },
+      { src: "images/network/network-4.jpg", caption: "Dual-ISP Failover & Connectivity Status" },
+      { src: "images/network/network-5.jpg", caption: "Telegram Bot Push Notifications Interface" },
+      { src: "images/network/network-6.jpg", caption: "System Event Logs and Interactive Interface Controls" }
+    ]
+  },
+  {
+    id: 9,
+    title: "Pharmacy POS System",
+    description: "A Point of Sale (POS) and inventory management system designed for pharmacies, featuring sales tracking, stock management, and interactive dashboards.",
+    tech: ["React", "Vite", "Tailwind CSS", "Spring Boot", "SQLite"],
+    categories: ["Web", "Software"],
+    status: "Confidential",
+    architecture: [
+      { component: "Frontend", detail: "React SPA with Vite & Tailwind CSS" },
+      { component: "Backend", detail: "Spring Boot REST API" },
+      { component: "Database", detail: "SQLite" }
+    ],
+    images: []
   },
   {
     id: 4,
@@ -163,24 +208,6 @@ export const projects = [
     demoLink: "https://it-342-g6-study-space-i6r8.vercel.app/",
     githubLink: "https://github.com/piolonrqz/IT342G6-StudySpace",
     images: ["images/studyspace/studyspace.jpg"]
-  },
-  {
-    id: 6,
-    title: "Payroll System",
-    description: "A desktop-based Interactive Payroll Authoring System replacing complex Excel templates with real-time tax/contribution calculations and an Ag-Grid spreadsheet interface.",
-    tech: ["Next.js", "Tauri", "TypeScript", "Ag-Grid", "SQLite", "Tailwind CSS"],
-    categories: ["Fintech", "Desktop"],
-    status: "Confidential",
-    architecture: [
-    { component: "Frontend", detail: "Next.js + Ag-Grid (Authoring Mode)" },
-    { component: "Backend Logic", detail: "TypeScript Engine" },
-    { component: "Core Logic", detail: "TypeScript Calculation Engine (Tax Brackets/Contributions)" },
-    { component: "Desktop Bridge", detail: "Tauri v2 (Rust backend for system access)" },
-    { component: "Reporting", detail: "React-PDF for institutional report generation" },
-    { component: "Database", detail: "SQLite" }
-    ],
-    githubLink: "https://github.com/sytrusz/ConsoLink-Payroll",
-    images: ["images/payroll/payroll-1.png", "images/payroll/payroll-2.png", "images/payroll/payroll-3.png"]
   },
   {
     id: 7,
