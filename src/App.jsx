@@ -8,6 +8,9 @@ import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react';
 import ScrollReveal from './components/ScrollReveal';
 import ContactModal from './components/ContactModal';
 
+import AnimatedBackground from './components/AnimatedBackground';
+import ScrollProgress from './components/ScrollProgress';
+
 const App = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [hoveredTech, setHoveredTech] = useState(null);
@@ -34,13 +37,10 @@ const App = () => {
   const displayedProjects = showAllProjects ? filteredProjects : filteredProjects.slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-[#050505] text-slate-200 font-sans selection:bg-cyan-500 selection:text-white relative overflow-x-hidden">
+    <div className="min-h-screen text-slate-200 font-sans selection:bg-cyan-500 selection:text-white relative overflow-x-hidden">
       
-      <div className="fixed inset-0 -z-10 h-full w-full bg-[#050505]">
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[120px] mix-blend-screen animate-pulse"></div>
-        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px] mix-blend-screen animate-pulse delay-1000"></div>
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03]"></div>
-      </div>
+      <ScrollProgress />
+      <AnimatedBackground />
 
       <Navbar />
 
@@ -48,15 +48,28 @@ const App = () => {
         
         {/* MAIN PROFILE */}
         <ScrollReveal>
-        <Hero />
+        <Hero onContactClick={() => setIsContactModalOpen(true)} />
         </ScrollReveal>
 
-        {/* 01. FEATURED PROJECTS */}
+        {/* 01. EXPERIENCE */}
+        <section id="experience" className="scroll-mt-32">
+          <ScrollReveal>
+          <div className="flex items-center gap-4 mb-12">
+             <span className="text-amber-400 font-mono text-xl font-bold">01.</span>
+             <h2 className="text-3xl font-bold text-white tracking-tight">Experience</h2>
+             <div className="h-px bg-slate-800 flex-1 ml-4"></div>
+          </div>
+          
+          <Experience />
+          </ScrollReveal>
+        </section>
+
+        {/* 02. FEATURED PROJECTS */}
         <section id="projects" className="scroll-mt-32">
           <ScrollReveal>
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
             <div className="flex items-center gap-4 flex-1">
-              <span className="text-cyan-400 font-mono text-xl font-bold">01.</span>
+              <span className="text-cyan-400 font-mono text-xl font-bold">02.</span>
               <h2 className="text-3xl font-bold text-white tracking-tight">Featured Projects</h2>
               <div className="h-px bg-slate-800 flex-1 ml-4 hidden md:block"></div>
             </div>
@@ -106,29 +119,16 @@ const App = () => {
           </ScrollReveal>
         </section>
 
-        {/* 02. TECH STACK */}
+        {/* 03. TECH STACK */}
         <section id="stack" className="scroll-mt-32">
           <ScrollReveal>
           <div className="flex items-center gap-4 mb-12">
-             <span className="text-purple-400 font-mono text-xl font-bold">02.</span>
+             <span className="text-purple-400 font-mono text-xl font-bold">03.</span>
              <h2 className="text-3xl font-bold text-white tracking-tight">Tech Stack</h2>
              <div className="h-px bg-slate-800 flex-1 ml-4"></div>
           </div>
           
           <Skills onTechHover={setHoveredTech} activeTech={hoveredTech} />
-          </ScrollReveal>
-        </section>
-
-        {/* 03. EXPERIENCE */}
-        <section id="experience" className="scroll-mt-32">
-          <ScrollReveal>
-          <div className="flex items-center gap-4 mb-12">
-             <span className="text-amber-400 font-mono text-xl font-bold">03.</span>
-             <h2 className="text-3xl font-bold text-white tracking-tight">Experience</h2>
-             <div className="h-px bg-slate-800 flex-1 ml-4"></div>
-          </div>
-          
-          <Experience />
           </ScrollReveal>
         </section>
 
@@ -141,7 +141,7 @@ const App = () => {
              <div className="h-px bg-slate-800 flex-1 ml-4"></div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="flex flex-col gap-8">
             <Education />
             <Certifications />
           </div>

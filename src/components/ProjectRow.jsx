@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { Github, ExternalLink, ArrowUpRight, Layers, X, ChevronLeft, ChevronRight, Maximize2, Image as ImageIcon, ShieldAlert } from 'lucide-react';
 
 const getImgSrc = (img) => typeof img === 'string' ? img : img?.src;
@@ -49,9 +50,17 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [handleNext, handlePrev, onClose]);
 
-  return (
+  // Disable body scroll when modal is open
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
+
+  return createPortal(
     <div 
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-[#050505]/95 backdrop-blur-md p-4 md:p-10 animate-in fade-in duration-300"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#050505]/95 backdrop-blur-md p-4 md:p-10 animate-in fade-in duration-300"
       onClick={onClose}
     >
       <button 
@@ -90,7 +99,7 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
             <img 
               src={getImgSrc(images[currentIndex])} 
               alt={`${project.title} screenshot ${currentIndex + 1}`}
-              className="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl animate-in zoom-in-95 duration-300"
+              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl animate-in zoom-in-95 duration-300"
             />
           ) : (
             <div className="flex flex-col items-center justify-center text-slate-500 gap-4">
@@ -124,7 +133,8 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 
@@ -152,11 +162,13 @@ const ProjectRow = ({ project, isHighlighted }) => {
 
   return (
     <>
-      <div className={`group relative rounded-2xl bg-slate-900/40 border transition-all duration-500 overflow-hidden ${
-        isHighlighted 
-          ? 'border-cyan-500/50 shadow-[0_0_30px_rgba(6,182,212,0.15)] ring-1 ring-cyan-500/30 -translate-y-1' 
-          : 'border-white/5 hover:border-white/20'
-      }`}>
+      <div 
+        className={`group relative rounded-2xl bg-slate-900/40 border transition-all duration-500 overflow-hidden ${
+          isHighlighted 
+            ? 'border-cyan-500/50 shadow-[0_0_30px_rgba(6,182,212,0.15)] ring-1 ring-cyan-500/30 -translate-y-1' 
+            : 'border-white/5 hover:border-white/20'
+        }`}
+      >
         
         {/* Card Glow Effect on Hover */}
         <div className={`absolute inset-0 bg-gradient-to-r from-purple-500/10 to-cyan-500/10 transition-opacity duration-500 pointer-events-none ${

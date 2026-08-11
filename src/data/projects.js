@@ -11,27 +11,55 @@ export const education = [
   {
     school: "Cebu Institute of Technology - University",
     degree: "Bachelor of Science in Information Technology",
-    year: "2021 - 2026",
+    year: "Class of 2026",
     roles: [
-      "Communications Liaison Officer - Committee on Volunteers (Computer Students' Society)",
-      "Member - Google Developer Groups on Campus - CIT-U"
+      "Communication Liaison Officer - Computer Students’ Society (2024 - 2025)",
+      "Volunteer Officer - Computer Students’ Society (2022 - 2024)",
+      "Member - Google Developer Group on Campus - CITU (2023 - 2025)"
     ],
     certifications: [
       {
         name: "TESDA AI Certificate - Advanced Institute of Technology",
         issuer: "TESDA",
-        year: "2026"
+        year: "2026",
+        link: ""
       },
       {
         name: "AWS Academy Graduate - Cloud Architecting",
         issuer: "Amazon Web Services (AWS)",
-        year: "2025" 
+        year: "2025",
+        link: "https://drive.google.com/file/d/14d3Xncb49JrhQNZlMJR-viUliuVnMcNb/view?usp=sharing"
       },
       {
         name: "AWS Academy Graduate - Cloud Foundations", 
         issuer: "Amazon Web Services (AWS)", 
-        year: "2025"
-      }
+        year: "2025",
+        link: "https://drive.google.com/file/d/1ptGEf9C8qM-bnpa9AR9RZO-Vw4fkklP6/view?usp=sharing"
+      },
+      {
+        name: "C Data Structures - Programming Fundamentals",
+        issuer: "CodeChum",
+        year: "2023",
+        link: "https://drive.google.com/file/d/1RZYX9QSpgyBCOrGeSBOtt27cYKZEWrxT/view?usp=sharing"
+      },
+      {
+        name: "Basic C (C Programming 2)",
+        issuer: "CodeChum",
+        year: "2022",
+        link: "https://drive.google.com/file/d/1RZYX9QSpgyBCOrGeSBOtt27cYKZEWrxT/view?usp=sharing"
+      },
+      {
+        name: "Cisco Networking Academy - IT Customer Support Basics", 
+        issuer: "Cisco Networking Academy", 
+        year: "2026",
+        link: "https://drive.google.com/file/d/13R1mcIjFR3c792v2vHvSVj7gxg_u132b/view?usp=sharing"
+      },
+      {
+        name: "Cisco Networking Academy - Operating Systems Support", 
+        issuer: "Cisco Networking Academy", 
+        year: "2026",
+        link: "https://drive.google.com/file/d/1DuPWjGlzMpZq5KwgqtGkqplIFkcHHIiS/view?usp=sharing"
+      },
     ]
   }
 ];
@@ -117,7 +145,13 @@ export const projects = [
       { component: "Database", detail: "PostgreSQL" }
     ],
     githubLink: "https://github.com/sytrusz/InnoCare-APE",
-    images: ["images/innocare/innocare-1.png", "images/innocare/innocare-2.png", "images/innocare/innocare-3.png", "images/innocare/innocare-4.png", "images/innocare/innocare-5.png"]
+    images: [
+      { src: "images/innocare/innocare-1.png", caption: "Dashboard overview of Annual Physical Examination records." },
+      { src: "images/innocare/innocare-2.png", caption: "AI-powered extraction of patient data from medical PDFs." },
+      { src: "images/innocare/innocare-3.png", caption: "Structured medical record review interface." },
+      { src: "images/innocare/innocare-4.png", caption: "Detailed patient health history and examination results." },
+      { src: "images/innocare/innocare-5.png", caption: "System settings and user management." }
+    ]
   },
   {
     id: 6,
@@ -135,7 +169,11 @@ export const projects = [
     { component: "Database", detail: "SQLite" }
     ],
     githubLink: "https://github.com/sytrusz/ConsoLink-Payroll",
-    images: ["images/payroll/payroll-1.png", "images/payroll/payroll-2.png", "images/payroll/payroll-3.png"]
+    images: [
+      { src: "images/payroll/payroll-1.png", caption: "Desktop dashboard for managing employee payroll runs." },
+      { src: "images/payroll/payroll-2.png", caption: "Interactive Ag-Grid spreadsheet interface for real-time payroll authoring." },
+      { src: "images/payroll/payroll-3.png", caption: "Automated tax and contribution calculation reporting." }
+    ]
   },
   {
     id: 3,
@@ -177,6 +215,31 @@ export const projects = [
     images: []
   },
   {
+    id: 10,
+    title: "Christmas Wishlist",
+    description: "A festive web application designed to help users create, manage, and share their Christmas wishlists.",
+    tech: ["React", "JavaScript", "Tailwind CSS"],
+    categories: ["Web"],
+    status: "Open Source",
+    architecture: [
+      { component: "Frontend", detail: "React Web Application" }
+    ],
+    githubLink: "https://github.com/sytrusz/christmas-wishlist/",
+    images: [
+      { src: "images/wishlist/wishlist-1.png", caption: "User Login Interface" },
+      { src: "images/wishlist/wishlist-2.png", caption: "User Registration" },
+      { src: "images/wishlist/wishlist-3.png", caption: "Christmas Wishlist Dashboard" },
+      { src: "images/wishlist/wishlist-4.png", caption: "Create a new wishlist" },
+      { src: "images/wishlist/wishlist-5.png", caption: "Selecting a user for the wishlist" },
+      { src: "images/wishlist/wishlist-6.png", caption: "Adding an item to the wishlist" },
+      { src: "images/wishlist/wishlist-7.png", caption: "Managing wishlist items" },
+      { src: "images/wishlist/wishlist-8.png", caption: "Admin Login Portal" },
+      { src: "images/wishlist/wishlist-9.png", caption: "Admin Dashboard - User Management" },
+      { src: "images/wishlist/wishlist-10.png", caption: "Admin Dashboard - Wishlist Management" },
+      { src: "images/wishlist/wishlist-11.png", caption: "Admin Dashboard - System Settings" }
+    ]
+  },
+  {
     id: 4,
     title: "CampusXperience",
     description: "A centralized web platform for handling campus events, student organizations, and announcements.",
@@ -190,7 +253,9 @@ export const projects = [
     { component: "Database", detail: "MySQL" }
     ],
     githubLink: "https://github.com/sytrusz/campusxperience",
-    images: ["images/campusxperience/campusxperience-1.jpg"]    
+    images: [
+      { src: "images/campusxperience/campusxperience-1.jpg", caption: "Centralized web platform for browsing campus events and organizations." }
+    ]    
   },    
   {
     id: 5,
@@ -207,7 +272,9 @@ export const projects = [
     ],
     demoLink: "https://it-342-g6-study-space-i6r8.vercel.app/",
     githubLink: "https://github.com/piolonrqz/IT342G6-StudySpace",
-    images: ["images/studyspace/studyspace.jpg"]
+    images: [
+      { src: "images/studyspace/studyspace.jpg", caption: "Cross-platform booking interface for finding co-working spaces." }
+    ]
   },
   {
     id: 7,
@@ -225,7 +292,9 @@ export const projects = [
     { component: "Database", detail: "MongoDB" }
     ],
     githubLink: "https://github.com/piolonrqz/notes-app",
-    images: ["images/notesapp/notesapp-1.jpg"]
+    images: [
+      { src: "images/notesapp/notesapp-1.jpg", caption: "Hybrid Web3 notes interface integrated with the Cardano blockchain." }
+    ]
   },
   {
     id: 8,
@@ -240,6 +309,8 @@ export const projects = [
       { component: "Database", detail: "MySQL Server" }
     ],
     githubLink: "https://github.com/kingkuys2123/HotelManagementSystem",
-    images: ["images/hotel/hotel-1.jpg"]
+    images: [
+      { src: "images/hotel/hotel-1.jpg", caption: "Java GUI desktop application for managing reservations and billing." }
+    ]
   }
 ];
