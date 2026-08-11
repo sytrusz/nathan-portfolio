@@ -28,13 +28,13 @@ const CustomCursor = () => {
     window.addEventListener('mousemove', onMouseMove);
     window.addEventListener('mouseover', onMouseOver);
     
-    // Hide default cursor
-    document.documentElement.style.cursor = 'none';
+    // Hide default cursor using a class so we can override it for iframes in CSS
+    document.body.classList.add('hide-native-cursor');
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('mouseover', onMouseOver);
-      document.documentElement.style.cursor = 'auto';
+      document.body.classList.remove('hide-native-cursor');
     };
   }, [position.x, position.y]);
 
@@ -42,14 +42,14 @@ const CustomCursor = () => {
     <>
       {/* Small dot */}
       <div 
-        className="fixed top-0 left-0 w-2 h-2 bg-cyan-400 rounded-full pointer-events-none z-[9999] mix-blend-screen transition-transform duration-75 ease-out"
+        className="fixed top-0 left-0 w-2 h-2 bg-cyan-400 rounded-full pointer-events-none z-[999999] mix-blend-screen transition-transform duration-75 ease-out"
         style={{ 
           transform: `translate3d(${position.x - 4}px, ${position.y - 4}px, 0)`,
         }}
       />
       {/* Outer ring */}
       <div 
-        className={`fixed top-0 left-0 w-8 h-8 border rounded-full pointer-events-none z-[9998] mix-blend-screen transition-all duration-150 ease-out ${
+        className={`fixed top-0 left-0 w-8 h-8 border rounded-full pointer-events-none z-[999998] mix-blend-screen transition-all duration-150 ease-out ${
           isPointer ? 'bg-cyan-500/10 border-cyan-400/80' : 'border-cyan-500/50'
         }`}
         style={{ 

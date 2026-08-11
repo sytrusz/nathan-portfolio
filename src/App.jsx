@@ -10,6 +10,7 @@ import ContactModal from './components/ContactModal';
 
 import AnimatedBackground from './components/AnimatedBackground';
 import ScrollProgress from './components/ScrollProgress';
+import CustomCursor from './components/CustomCursor';
 
 const App = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -39,6 +40,7 @@ const App = () => {
   return (
     <div className="min-h-screen text-slate-200 font-sans selection:bg-cyan-500 selection:text-white relative overflow-x-hidden">
       
+      <CustomCursor />
       <ScrollProgress />
       <AnimatedBackground />
 

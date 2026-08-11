@@ -14,6 +14,16 @@ html {
   100% { transform: translate(var(--tx, 20px), var(--ty, -20px)); }
 }
 
+body.hide-native-cursor, 
+body.hide-native-cursor * {
+  cursor: none !important;
+}
+
+body.hide-native-cursor iframe,
+body.hide-native-cursor iframe * {
+  cursor: auto !important;
+}
+
 @keyframes wave {
   0% { transform: rotate(0deg); }
   10% { transform: rotate(14deg); }
