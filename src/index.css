@@ -14,14 +14,18 @@ html {
   100% { transform: translate(var(--tx, 20px), var(--ty, -20px)); }
 }
 
-body.hide-native-cursor, 
-body.hide-native-cursor * {
+body.hide-native-cursor:not(.image-modal-open), 
+body.hide-native-cursor:not(.image-modal-open) * {
   cursor: none !important;
 }
 
-body.hide-native-cursor iframe,
-body.hide-native-cursor iframe * {
+body.hide-native-cursor:not(.image-modal-open) iframe,
+body.hide-native-cursor:not(.image-modal-open) iframe * {
   cursor: auto !important;
+}
+
+body.image-modal-open .custom-cursor-element {
+  display: none !important;
 }
 
 @keyframes wave {

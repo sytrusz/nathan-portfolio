@@ -42,14 +42,14 @@ const CustomCursor = () => {
     <>
       {/* Small dot */}
       <div 
-        className="fixed top-0 left-0 w-2 h-2 bg-cyan-400 rounded-full pointer-events-none z-[999999] mix-blend-screen transition-transform duration-75 ease-out"
+        className="custom-cursor-element fixed top-0 left-0 w-2 h-2 bg-cyan-400 rounded-full pointer-events-none z-[999999] mix-blend-screen transition-transform duration-75 ease-out"
         style={{ 
           transform: `translate3d(${position.x - 4}px, ${position.y - 4}px, 0)`,
         }}
       />
       {/* Outer ring */}
       <div 
-        className={`fixed top-0 left-0 w-8 h-8 border rounded-full pointer-events-none z-[999998] mix-blend-screen transition-all duration-150 ease-out ${
+        className={`custom-cursor-element fixed top-0 left-0 w-8 h-8 border rounded-full pointer-events-none z-[999998] mix-blend-screen transition-all duration-150 ease-out ${
           isPointer ? 'bg-cyan-500/10 border-cyan-400/80' : 'border-cyan-500/50'
         }`}
         style={{ 

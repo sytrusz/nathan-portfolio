@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import About from './components/About';
 import ProjectRow from './components/ProjectRow';
 import { Education, Skills, Certifications, Experience } from './components/ResumeSection';
 import { projects, profile } from './data/projects';
@@ -48,9 +49,14 @@ const App = () => {
 
       <main className="max-w-screen-2xl w-full mx-auto px-6 md:px-12 lg:px-24 pb-32 space-y-32">
         
-        {/* MAIN PROFILE */}
+        {/* MAIN PROFILE (INTRO) */}
         <ScrollReveal>
         <Hero onContactClick={() => setIsContactModalOpen(true)} />
+        </ScrollReveal>
+
+        {/* 00. ABOUT ME */}
+        <ScrollReveal>
+        <About onContactClick={() => setIsContactModalOpen(true)} />
         </ScrollReveal>
 
         {/* 01. EXPERIENCE */}

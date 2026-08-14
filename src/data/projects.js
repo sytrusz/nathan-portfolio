@@ -25,6 +25,12 @@ export const education = [
         link: ""
       },
       {
+        name: "TESDA - Microsoft Azure AI Fundamentals",
+        issuer: "TESDA",
+        year: "2026",
+        link: "https://drive.google.com/file/d/1a2XsoZKl56SEm-CPkpf5SQt80RXjtXX0/view?usp=sharing"
+      },
+      {
         name: "AWS Academy Graduate - Cloud Architecting",
         issuer: "Amazon Web Services (AWS)",
         year: "2025",
@@ -59,6 +65,12 @@ export const education = [
         issuer: "Cisco Networking Academy", 
         year: "2026",
         link: "https://drive.google.com/file/d/1DuPWjGlzMpZq5KwgqtGkqplIFkcHHIiS/view?usp=sharing"
+      },
+      {
+        name: "Cisco Networking Academy - Security and Connectivity Support", 
+        issuer: "Cisco Networking Academy", 
+        year: "2026",
+        link: "https://drive.google.com/file/d/15Vc_Tsd1jrMsygt5XiKoPRJfZgWLbLIN/view?usp=sharing"
       },
     ]
   }

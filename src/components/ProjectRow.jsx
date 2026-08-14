@@ -53,8 +53,10 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
   // Disable body scroll when modal is open
   useEffect(() => {
     document.body.style.overflow = 'hidden';
+    document.body.classList.add('image-modal-open');
     return () => {
       document.body.style.overflow = '';
+      document.body.classList.remove('image-modal-open');
     };
   }, []);
 
